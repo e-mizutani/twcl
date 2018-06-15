@@ -1,0 +1,18 @@
+
+      <%= form_with(model: @twcl, local: true ,url: confirm_twcls_path ) do |form| %>
+<p><%= notice %></p>
+
+        <% @twcl.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+
+
+  <div class="twcl_title">
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+  </div>
+  <%= form.submit %>
+<% end %>
+
+<%= link_to "つぶやき一覧画面にもどる", twcls_path %>

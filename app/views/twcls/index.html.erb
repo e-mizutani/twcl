@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  	<head>
+  	  		<title></title>
+	  </head>
+	  	    <div class="container clearfix">
+		<header class="header clearfix">
+            <nav>
+                <ul class="top_menu clearfix">
+                    <li><a href="#">ホーム</a></li>
+                    <li><a href="#">ナビ1</a></li>
+                    <li><a href="#">ナビ2</a></li>
+                </ul>
+            </nav>
+    </header>
+    
+    <article class="content clearfix">
+      <h1>つぶやいた一覧</h1>
+         <p><%= notice %></p>
+      <table>
+        <tr>
+          <th><center>つぶやき内容</center></th>
+          <th colspan="3"><center>操作</center></th>
+        </tr>
+
+　　　<% @twcls.each do |twcl| %>
+        <tr>
+        　<td><%= twcl.content %></td>
+        　<td><%= link_to '詳細', twcl_path(twcl.id) %></td>
+        　<td><%= link_to "編集", edit_twcl_path(twcl.id), data: { confirm: '編集していいですか？' } %></td>
+        　<td><%= link_to '削除', twcl_path(twcl.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
+        </tr>
+      <% end %>
+      </table>
+      <br>
+      <%= link_to 'つぶやいてみる', new_twcl_path, class: 'btn btn-default' %>
+    </article>
+
+      <footer class="footer">
+        <p>Copyright © 201801 Eiji Mizutani All RIGHTS RESERVED.</p>
+      </footer>
+  　</div>

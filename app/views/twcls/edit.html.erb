@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  	<head>
+  	  		<title></title>
+	  </head>
+	  	    <div class="container clearfix">
+		<header class="header clearfix">
+            <nav>
+                <ul class="top_menu clearfix">
+                    <li><a href="#">ホーム</a></li>
+                    <li><a href="#">ナビ1</a></li>
+                    <li><a href="#">ナビ2</a></li>
+                </ul>
+            </nav>
+    </header>
+    
+    <article class="content clearfix">
+     <%= form_with(model: @twcl, local: true) do |form| %>
+     <% if @twcl.errors.any? %>
+     <div id="error_explanation">
+      <h2><%= @twcl.errors.count %>件のエラーがあります。</h2>
+      <ul>
+
+      <% @twcl.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+     <% end %>
+
+      <h1>つぶやきの編集</h1>
+      <div class="twcl_title">
+        <%= form.label :content %>
+        <%= form.text_field :content %>
+      </div>
+  <%= form.submit %>
+  <% end %>
+    </article>
+
+      <footer class="footer">
+        <p>Copyright c 201801 Eiji Mizutani All RIGHTS RESERVED.</p>
+      </footer>
+    </div>
